@@ -9,7 +9,7 @@ const char upper_case[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const char numbers[] = "0123456789";
 const char special_case[] = "~!@#$%^&*()_+-=[]{}'\\|/:;<>,.?";
 
-/* Функція, яка генерує випадковий пароль з вибраними параметрами генерації */
+/* A function that generates a random password with selected generation parameters */
 string Generate(int length, char flag_uppercase, char flag_numbers, char
 	flag_specialcase)
 {
@@ -91,7 +91,7 @@ int main()
 
 	cout << " <----> Генератор паролів <---->\n\n";
 
-	/* Перевірка на правильність вводу довжини паролю від 3 до 30 включно. */
+	/* Check for the correctness of entering the length of the password from 3 to 30 inclusive. */
 	do
 	{
 		cout << "Введіть довжину вашого паролю (від 3 до 30 включно): ";
@@ -104,7 +104,7 @@ int main()
 		}
 	} while (length_password <= 2 || length_password >= 31);
 
-	/* Перевірка на правильність вводу відповіді від користувача */
+	/* Checking the correctness of the input of the answer from the user. */
 	do
 	{
 		cout << "\tЧи використовувати великі літери? (y - так; n - ні): ";
@@ -117,7 +117,7 @@ int main()
 		}
 	} while (isUppercase != 'y' && isUppercase != 'n');
 
-	/* Перевірка на правильність вводу відповіді від користувача */
+	/* Checking the correctness of the input of the answer from the user. */
 	do
 	{
 		cout << "\tЧи використовувати цифри? (y - так; n - ні): ";
@@ -130,7 +130,7 @@ int main()
 		}
 	} while (isNumbers != 'y' && isNumbers != 'n');
 
-	/* Перевірка на правильність вводу відповіді від користувача */
+	/* Checking the correctness of the input of the answer from the user. */
 	do
 	{
 		cout << "\tЧи використовувати спеціальні символи? (y - так; n - ні): ";
@@ -142,13 +142,14 @@ int main()
 			cin.ignore(32767, '\n');
 		}
 	} while (isSpecial != 'y' && isSpecial != 'n');
+
 	string password = Generate(length_password, isUppercase, isNumbers, isSpecial);
 
 	cout << endl;
 
 	cout << "Сгенерований пароль: " << password << endl;
 
-	/* Записуємо в файл Passwords.txt пароль, який ви згенерували */
+	/* Write the password you generated in the Passwords.txt file. */
 	ofstream fout("D:\\Passwords.txt", ios_base::app);
 	if (!fout.is_open())
 		cout << "Cannot open file!" << endl;
@@ -156,14 +157,16 @@ int main()
 	fout.close();
 	cout << endl;
 
-	/* Виводимо в консоль згенерований пароль та ваші попередні паролі. Новий
-	пароль записується в кінець файлу, тобто останнім! */
+	/* 
+	Output the generated password and your previous passwords to the console.
+	The new password is written at the end of the file, i.e. the last one!
+	*/
 	ifstream fin("D:\\Passwords.txt", ios_base::in);
 	if (!fin.is_open())
 		cout << "Cannot open file!" << endl;
 	cout << "<---- Список попередніх згенерованих паролів ---->" << endl;
 
-	/* Номер в списку в виведенні в консолі та в текстовому документі */
+	/* The number in the list in the output in the console and in the text document */
 	int index = 1;
 	while (!fin.eof())
 	{
