@@ -89,12 +89,12 @@ int main()
 	char isNumbers;
 	char isSpecial;
 
-	cout << " <----> √енератор парол≥в <---->\n\n";
+	cout << " <----> Generator of password <---->\n\n";
 
 	/* Check for the correctness of entering the length of the password from 3 to 30 inclusive. */
 	do
 	{
-		cout << "¬вед≥ть довжину вашого паролю (в≥д 3 до 30 включно): ";
+		cout << "Input the length of your password (3 to 30 inclusive): ";
 		cin >> length_password;
 		cin.ignore(32767, '\n');
 		if (cin.fail())
@@ -107,7 +107,7 @@ int main()
 	/* Checking the correctness of the input of the answer from the user. */
 	do
 	{
-		cout << "\t„и використовувати велик≥ л≥тери? (y - так; n - н≥): ";
+		cout << "\tUse capital letters? (y - yes; n - no): ";
 		cin >> isUppercase;
 		cin.ignore(32767, '\n');
 		if (cin.fail())
@@ -120,7 +120,7 @@ int main()
 	/* Checking the correctness of the input of the answer from the user. */
 	do
 	{
-		cout << "\t„и використовувати цифри? (y - так; n - н≥): ";
+		cout << "\tUse numbers? (y - yes; n - no): ";
 		cin >> isNumbers;
 		cin.ignore(32767, '\n');
 		if (cin.fail())
@@ -133,7 +133,7 @@ int main()
 	/* Checking the correctness of the input of the answer from the user. */
 	do
 	{
-		cout << "\t„и використовувати спец≥альн≥ символи? (y - так; n - н≥): ";
+		cout << "\tUse special symbols? (y - yes; n - no): ";
 		cin >> isSpecial;
 		cin.ignore(32767, '\n');
 		if (cin.fail())
@@ -147,7 +147,7 @@ int main()
 
 	cout << endl;
 
-	cout << "—генерований пароль: " << password << endl;
+	cout << "Generated password: " << password << endl;
 
 	/* Write the password you generated in the Passwords.txt file. */
 	ofstream fout("D:\\Passwords.txt", ios_base::app);
@@ -164,7 +164,7 @@ int main()
 	ifstream fin("D:\\Passwords.txt", ios_base::in);
 	if (!fin.is_open())
 		cout << "Cannot open file!" << endl;
-	cout << "<---- —писок попередн≥х згенерованих парол≥в ---->" << endl;
+	cout << "<---- List of previous generated passwords ---->" << endl;
 
 	/* The number in the list in the output in the console and in the text document */
 	int index = 1;
