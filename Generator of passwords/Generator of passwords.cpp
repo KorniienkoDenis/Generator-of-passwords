@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include <fstream>
+#include <ctime>
 
 using namespace std;
 
@@ -153,8 +154,12 @@ int main()
 	ofstream fout("D:\\Passwords.txt", ios_base::app);
 	if (!fout.is_open())
 		cout << "Cannot open file!" << endl;
-	fout << password << '\n';
+
+	if(fout.is_open())
+		fout << password << "\n";
+
 	fout.close();
+
 	cout << endl;
 
 	/* 
@@ -164,20 +169,22 @@ int main()
 	ifstream fin("D:\\Passwords.txt", ios_base::in);
 	if (!fin.is_open())
 		cout << "Cannot open file!" << endl;
+
 	cout << "<---- List of previous generated passwords ---->" << endl;
 
 	/* The number in the list in the output in the console and in the text document */
 	int index = 1;
 	while (!fin.eof())
 	{
+
+		password = "";
 		fin >> password;
 
 		if (password.empty())
-		{
-			break;
-		}
+			continue;
 
 		cout << index++ << ". " << password << endl;
+
 	}
 
 	fin.close();
