@@ -25,7 +25,7 @@ string Generate(int length, char flag_uppercase, char flag_numbers, char
 	else if (flag_uppercase == 'y' && flag_numbers == 'n' && flag_specialcase ==
 		'n')
 	{
-		set_result = string(lower_case) + upper_case;
+		set_result = static_cast<string>(lower_case) + upper_case;
 		for (int i = 0; i < length; i++)
 			password += set_result[rand() % 52 + 0];
 		return password;
@@ -33,7 +33,7 @@ string Generate(int length, char flag_uppercase, char flag_numbers, char
 	else if (flag_uppercase == 'y' && flag_numbers == 'y' && flag_specialcase ==
 		'n')
 	{
-		set_result = string(lower_case) + upper_case + numbers;
+		set_result = static_cast<string>(lower_case) + upper_case + numbers;
 		for (int i = 0; i < length; i++)
 			password += set_result[rand() % 62 + 0];
 		return password;
@@ -41,7 +41,7 @@ string Generate(int length, char flag_uppercase, char flag_numbers, char
 	else if (flag_uppercase == 'y' && flag_numbers == 'y' && flag_specialcase ==
 		'y')
 	{
-		set_result = string(lower_case) + upper_case + numbers + special_case;
+		set_result = static_cast<string>(lower_case) + upper_case + numbers + special_case;
 		for (int i = 0; i < length; i++)
 			password += set_result[rand() % 92 + 0];
 		return password;
@@ -49,7 +49,7 @@ string Generate(int length, char flag_uppercase, char flag_numbers, char
 	else if (flag_uppercase == 'n' && flag_numbers == 'y' && flag_specialcase ==
 		'y')
 	{
-		set_result = string(lower_case) + numbers + special_case;
+		set_result = static_cast<string>(lower_case) + numbers + special_case;
 		for (int i = 0; i < length; i++)
 			password += set_result[rand() % 66 + 0];
 		return password;
@@ -57,7 +57,7 @@ string Generate(int length, char flag_uppercase, char flag_numbers, char
 	else if (flag_uppercase == 'n' && flag_numbers == 'n' && flag_specialcase ==
 		'y')
 	{
-		set_result = string(lower_case) + special_case;
+		set_result = static_cast<string>(lower_case) + special_case;
 		for (int i = 0; i < length; i++)
 			password += set_result[rand() % 56 + 0];
 		return password;
@@ -65,14 +65,14 @@ string Generate(int length, char flag_uppercase, char flag_numbers, char
 	else if (flag_uppercase == 'y' && flag_numbers == 'n' && flag_specialcase ==
 		'y')
 	{
-		set_result = string(lower_case) + upper_case + special_case;
+		set_result = static_cast<string>(lower_case) + upper_case + special_case;
 		for (int i = 0; i < length; i++)
 			password += set_result[rand() % 82 + 0];
 		return password;
 	}
 	else
 	{
-		set_result = string(lower_case) + numbers;
+		set_result = static_cast<string>(lower_case) + numbers;
 		for (int i = 0; i < length; i++)
 			password += set_result[rand() % 36 + 0];
 		return password;
